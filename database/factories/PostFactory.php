@@ -17,7 +17,6 @@ class PostFactory extends Factory
             'title' => $this->faker->sentence(3),
             'user_id' => 1,
             'description' => $this->faker->paragraph(4),
-            'publication_date' => now(),
         ];
     }
 }

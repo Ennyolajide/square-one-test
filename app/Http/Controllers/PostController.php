@@ -17,6 +17,6 @@ class PostController extends Controller
             'user_id' => Auth::user()->id,
             'description'  => $request->description
         ]);
-        return back()->withStatus($status);
+        return back()->with($status ? 'success' : 'error',$status ? 'Post successfully created' : 'Error creating Post');
     }
 }
