@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-use App\Http\Controllers\BlogPostFeedContoller;
+use App\Services\BlogPostFeedServices;
 
 
 class FetchBlogPosts extends Command
@@ -38,8 +38,8 @@ class FetchBlogPosts extends Command
      *
      * @return int
      */
-    public function handle()
+    public function handle(BlogPostFeedServices $blogPostFeedServices)
     {
-        (new BlogPostFeedContoller())->importBlogPosts();
+        $blogPostFeedServices->importBlogPosts();
     }
 }

@@ -19,12 +19,6 @@ class BlogPostTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
-    {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
-    }
 
     public function test_any_user_can_read_all_posts()
     {
