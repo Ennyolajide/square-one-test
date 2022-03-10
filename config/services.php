@@ -30,4 +30,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'blog_feed' => [
+        'url' => env('BLOG_POST_FETCH_URL'),
+    ]
+
 ];

@@ -13,8 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-        \App\Models\User::factory(1)->create(['name' => 'admin']);
-        \App\Models\Post::factory(100)->create();
+        //create designated, system-created user, 'admin'
+        \App\Models\User::factory(1)->create([
+            'name' => 'admin',
+            'is_admin' => true,
+            'email' => 'admin@larave.dev'
+        ] );
+        //\App\Models\Post::factory(100)->create();
     }
 }
