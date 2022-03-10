@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->integer('user_id');
             $table->text('description');
-            $table->dateTime('publication_date');
+            $table->dateTime('publication_date')->useCurrent();
             $table->timestamps();
         });
     }
