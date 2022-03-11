@@ -23,7 +23,7 @@ This is a Coding Exercise solution written by - [Olajide Eniseyin](https://www.l
     php artisan key:generate
     
   - ```bash
-    npm installl
+    npm install
   
 - For feature Test
   - ```bash
