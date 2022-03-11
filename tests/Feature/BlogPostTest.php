@@ -2,18 +2,22 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
+
+
 //use Illuminate\Contracts\Auth\Authenticatable;
 use Tests\TestCase;
 
 use App\Models\User;
 use App\Models\Post;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 
 class BlogPostTest extends TestCase
 {   
-    use RefreshDatabase;
+    use RefreshDatabase,DatabaseMigrations;
     /**
      * A basic feature test example.
      *
@@ -26,13 +30,6 @@ class BlogPostTest extends TestCase
 
         $this->get('/')->assertSee($post->title);
     }
-
-    // public function test_any_user_can_sort_posts_by_publication_date()
-    // {
-    //     $posts = Post::factory()->create(10);
-
-    //     $this->get('/')->assertSee($post->title);
-    // }
 
     public function test_any_user_can_view_a_single_post()
     {

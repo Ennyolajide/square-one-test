@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Http;
 
 class BlogPostFeedServices
 {
-    //
 
     public function fetchBlogPosts(){
         try {
@@ -26,7 +25,7 @@ class BlogPostFeedServices
     public function insertPosts($data){
         try {
             DB::transaction(function() use($data) {
-                $admin = $this->getSystemCreateAdminUser();
+                $admin = $this->getSystemCreatedAdminUser();
                 foreach ($data as $key => $value) {
                     $admin->posts()->create($value);
                 }
@@ -37,8 +36,8 @@ class BlogPostFeedServices
         }
     }
 
-    public function getSystemCreateAdminUser(){
-        return User::whereName('admin')->where('is_admin', 1)->first();
+    public function getSystemCreatedAdminUser(){
+       return User::whereName('admin')->where('is_admin', 1)->first();
     }
 
 

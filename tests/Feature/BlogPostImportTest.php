@@ -2,11 +2,17 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
 
-use App\Http\Controllers\BlogPostFeedContoller;
+use Tests\TestCase;
+use App\Models\User;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Foundation\Testing\WithFaker;
+use Database\Seeders\SystemDesignatedAdminSeeder;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+
+
 
 class BlogPostImportTest extends TestCase
 {
@@ -15,17 +21,12 @@ class BlogPostImportTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
-    {
-        $response = $this->get('/');
+    use RefreshDatabase,DatabaseMigrations;
 
-        $response->assertStatus(200);
+    public function test_fetch_blog_posts_command()
+    {
+        $this->seed(SystemDesignatedAdminSeeder::class);
+        $this->artisan('blogpost:fetch')->assertExitCode(0);
     }
 
-    public function test_a_system_created_user_admin_exist()
-    {
-        $user = (new BlogPostFeedContoller())->getSystemCreateAdminUser();
-        // var_dump($user);
-        // //$this->assertEquals('admin',$user->name);
-    }
 }
