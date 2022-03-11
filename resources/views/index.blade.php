@@ -48,7 +48,12 @@
 
                     <div class="ml-12">
                         <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                            {{ Str::limit($post->title,120) }}
+                            {{ Str::limit($post->description,120) }}
+                        </div>
+                    </div>
+                    <div class="ml-12">
+                        <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                            Published at : {{ $post->publication_date->format("d - M - Y H:i:s") }}
                         </div>
                     </div>
                 </div>

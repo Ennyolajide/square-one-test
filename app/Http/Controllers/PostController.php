@@ -17,6 +17,6 @@ class PostController extends Controller
             'user_id' => Auth::user()->id,
             'description'  => $request->description
         ]);
-        return redirect()->route('dashbaord')->with($status ? 'success' : 'error',$status ? 'Post successfully created' : 'Error creating Post');
+        return redirect()->route('dashboard')->with($status ? 'success' : 'error',$status ? 'Post successfully created' : 'Error creating Post');
     }
 }

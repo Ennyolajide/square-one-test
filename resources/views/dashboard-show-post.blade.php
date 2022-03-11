@@ -28,7 +28,7 @@
                     <br/>
                     <span class="vdark:text-white font-body text-grey"></span>
                     <p class="pl-2 font-body font-light text-primary dark:text-white">
-                      Publication date : {{ $post->publication_date->format("m/d/Y") }}
+                      Published at : {{ $post->publication_date->format("d - M - Y H:i:s") }}
                     </p>
                   </div>
 

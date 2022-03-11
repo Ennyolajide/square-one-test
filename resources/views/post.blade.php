@@ -19,7 +19,7 @@
                     <br/>
                     <div class="flex items-center">
                         <p class="pr-2 font-body font-light text-primary dark:text-white">
-                            Publication date : {{ $post->publication_date->format("m/d/Y") }}
+                            Published at : {{ $post->publication_date->format("d - M - Y H:i:s") }}
                         </p>
             
                     </div>
