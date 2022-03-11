@@ -12,6 +12,10 @@ class Post extends Model
 
     protected $guarded = [];
 
+    protected $dates = ['publication_date'];
+
+
+
     public function user(){
         return $this->BelongsTo(User::class);
     }

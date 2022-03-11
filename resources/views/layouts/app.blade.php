@@ -32,5 +32,16 @@
                 {{ $slot }}
             </main>
         </div>
+
+        <script>
+            const selectElement = document.querySelector('#sortBy');
+
+            selectElement.addEventListener('change', (event) => {
+                console.log(event.target.value);
+                window.location.href = "{{ url()->current() }}?sort="+event.target.value;
+                // const result = document.querySelector('.result');
+                // result.textContent = `You like ${event.target.value}`;
+            });
+        </script>
     </body>
 </html>

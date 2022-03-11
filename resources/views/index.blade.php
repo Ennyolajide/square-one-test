@@ -1,5 +1,34 @@
 <x-home-layout>
     <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
+        <br>
+        <div class="">
+            
+
+            <div class="flex justify-center">
+                <div class="mb-3 xl:w-96">
+                  <select id="sortBy" class="form-select appearance-none
+                    block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding bg-no-repeat
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                      <option {{ $order == '' ? 'selected' : '' }} disabled>Sort By : Publication Date </option>
+                      <option {{ $order == 'latest' ? 'selected' : '' }} value="latest">Latest</option>
+                      <option {{ $order == 'oldest' ? 'selected' : '' }} value="oldest">Oldest</option>
+                      {{ $order }}
+                  </select>
+                </div>
+            </div>
+        </div>
         <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
             <div class="grid grid-cols-1 md:grid-cols-2">
                 @foreach ($posts as $post)
@@ -26,8 +55,8 @@
                 @endforeach
             </div>
 
-            @php $paginator = $posts; @endphp
-            @include('layouts.pagination')
+           {{--  @php $paginator = $posts; @endphp
+            @include('layouts.pagination') --}}
         </div>
 
         <div class="flex justify-center mt-4 sm:items-center sm:justify-between">

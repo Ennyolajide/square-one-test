@@ -10,10 +10,16 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-    public function index(){
-        $posts = Post::where('user_id', Auth::user()->id)->orderBy('publication_date', 'desc')->paginate(50);
+    public function index(Request $request){
+        $order = $request->sort;
+
+        if ($request->has('sort') && $request->sort === 'oldest') {
+            $posts = Post::where('user_id', Auth::user()->id)->orderBy('publication_date', 'asc')->get();
+        } else {
+            $posts = Post::where('user_id', Auth::user()->id)->orderBy('publication_date', 'desc')->get();
+        }
         //return $posts; 
-        return view('dashboard',compact('posts'));
+        return view('dashboard',compact('posts','order'));
     }
 
     public function show(Post $post){

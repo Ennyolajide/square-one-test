@@ -8,10 +8,16 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(){
-        $posts = Post::orderBy('publication_date', 'desc')->paginate(50);
+    public function index(Request $request){
+        $order = $request->sort;
 
-        return view('index',compact('posts'));
+        if ($request->has('sort') && $request->sort === 'oldest') {
+            $posts = Post::orderBy('publication_date', 'asc')->get();
+        } else {
+            $posts = Post::latest('publication_date')->get();
+        }
+
+        return view('index',compact('posts','order'));
     }
 
     public function show(Post $post){

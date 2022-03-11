@@ -2,31 +2,40 @@
 
 
 
-## About The Project (Laravel Test)
+## About The Project (SQUARE-1 Test)
 
 This is a Coding Exercise solution written by - [Olajide Eniseyin](https://www.linkedin.com/in/eniseyin-olabode/)
 
-- Unit Test in this project uses a json file (public/test.json) for testing
-- The Json file contains array of Emails as described in the Exercise document
-- Rename .env.example file to .env to scaffold the basic configuration file 
-- Make sure you have Redis installed
-- Ensure is set the value of the following in env file
-  ```javascript 
-  QUEUE_CONNECTION=redis
-  ```
 - Set Database connection
 - Run 
   - ```bash
     composer install
     ```
   - ```bash
-    php artisan migrate
+    php artisan migrate:fresh --seed
 
   - ```bash
     php artisan key:generate
   
-- For Unit Test (EmailJobDispatchTest) & (EmailListTest) Run
+- For feature Test
   - ```bash
     php artisan test
     ```
   
+- On deployment, A cron job is needed to handle the auto fetching of the blog posts from the other platform, this can be done in two ways
+    
+  Creating a cron job [Laravel Scheduler](https://laravel.com/docs/8.x/scheduling#running-the-scheduler) 
+  - ```bash
+    crontab -e
+    ```
+  Adding the line below to the cronjob
+  ```bash
+    * * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&
+  ```
+
+  Or run the command below in a local environment
+  ```bash
+    php artisan schedule:work
+  ```
+
+  Cheers!
