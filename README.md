@@ -7,6 +7,7 @@
 This is a Coding Exercise solution written by - [Olajide Eniseyin](https://www.linkedin.com/in/eniseyin-olabode/)
 
 - Set Database connection
+- Create .env file from example.env
 - Ensure to add this to your env file
   ```javascript 
   BLOG_POST_FETCH_URL=https://sq1-api-test.herokuapp.com/posts
