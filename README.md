@@ -21,6 +21,9 @@ This is a Coding Exercise solution written by - [Olajide Eniseyin](https://www.l
 
   - ```bash
     php artisan key:generate
+    
+  - ```bash
+    npm installl
   
 - For feature Test
   - ```bash
